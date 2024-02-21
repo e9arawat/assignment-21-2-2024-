@@ -58,10 +58,8 @@ def answer():
         unique_pair = {}
         for d in month_data:
             shape = d["shape"]
-            if shape not in unique_pair:
-                unique_pair[shape] = []
-            unique_pair[shape].append(d)
-
+            unique_pair[shape] = unique_pair.get(shape,[])+[d]
+            
         for item in unique_pair:
             unique_pair[item] = sorted(
                 unique_pair[item], key=lambda x: x["sequence"], reverse=True
